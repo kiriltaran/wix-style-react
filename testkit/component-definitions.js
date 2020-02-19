@@ -644,7 +644,7 @@ export default {
     props: {
       primaryAction: {
         text: 'Edit',
-        theme: 'whiteblue',
+        skin: 'inverted',
         onClick: () => ({}),
       },
     },
