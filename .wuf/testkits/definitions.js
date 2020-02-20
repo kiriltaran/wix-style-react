@@ -6,21 +6,6 @@
  */
 
 module.exports = {
-  SideMenuDrill: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    skipSanityTest: true,
-    testkitPath: '../src/Deprecated/SideMenu/DrillView/DrillView.driver',
-    protractorTestkitPath:
-      '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver',
-    protractorTestkitExportName: 'drillViewTestkitFactory',
-
-    puppeteerTestkitPath:
-      '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver',
-    puppeteerTestkitExportName: 'drillViewTestkitFactory',
-  },
-
   BadgeSelectItemBuilder: {
     skipSanityTest: true,
     noTestkit: true,
@@ -138,18 +123,6 @@ module.exports = {
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
     puppeteerTypeImportName: 'TextPuppeteerDriver'
-  },
-
-  SideMenu: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    testkitPath: '../src/Deprecated/SideMenu/core/SideMenu.driver',
-
-    protractorTestkitPath:
-      '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
-
-    puppeteerTestkitPath: '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
   },
 
   Calendar: {
@@ -509,12 +482,6 @@ module.exports = {
   },
 
   Tabs: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-  },
-
-  StatsWidget: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
