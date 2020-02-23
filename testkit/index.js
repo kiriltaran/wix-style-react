@@ -163,6 +163,7 @@ export const sidePanelTestkitFactory = uniTestkitFactoryCreator(load(require('..
 export const fontUpgradeTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
 export const customModalTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const statusIndicatorTestkitFactory = uniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
+export const popoverMenuTestkitFactory = uniTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.uni.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const draggableTestkitFactory = testkitFactoryCreator(load(require('../src/DragAndDrop/Draggable/Draggable.driver')));
 export const editableRowTestkitFactory = testkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.driver')));

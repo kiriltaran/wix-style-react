@@ -125,6 +125,7 @@ export const sidePanelTestkitFactory: any;
 export const fontUpgradeTestkitFactory: any;
 export const customModalTestkitFactory: any;
 export const statusIndicatorTestkitFactory: any;
+export const popoverMenuTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const editableRowTestkitFactory: any;
 export const fieldLabelAttributesTestkitFactory: any;

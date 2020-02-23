@@ -165,6 +165,7 @@ export const sidePanelTestkitFactory = protractorUniTestkitFactoryCreator(load(r
 export const fontUpgradeTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
 export const customModalTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const statusIndicatorTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
+export const popoverMenuTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.uni.driver')));
 export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const editableRowTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.uni.driver')));
 export const fieldLabelAttributesTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FieldLabelAttributes/FieldLabelAttributes.driver')));

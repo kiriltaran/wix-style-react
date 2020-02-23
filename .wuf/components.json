@@ -430,5 +430,8 @@
   },
   "StatusIndicator": {
     "path": "src/StatusIndicator"
+  },
+  "PopoverMenu": {
+    "path": "src/PopoverMenu"
   }
 }

@@ -151,6 +151,7 @@ export const sidePanelTestkitFactory = puppeteerUniTestkitFactoryCreator(load(re
 export const fontUpgradeTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
 export const customModalTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/CustomModal/CustomModal.uni.driver')));
 export const statusIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/StatusIndicator/StatusIndicator.uni.driver')));
+export const popoverMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.uni.driver')));
 export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const editableRowTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.uni.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver')));
