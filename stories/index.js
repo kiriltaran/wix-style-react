@@ -38,7 +38,6 @@ require('../src/ComposerHeader/docs/index.story');
 require('../src/ContactItemBuilder/docs');
 require('../src/CounterBadge/docs/index.story');
 require('../src/CustomModal/docs/index.story');
-require('../src/DataTable/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/DatePicker/docs/index.story');
 require('../src/Divider/docs/index.story');

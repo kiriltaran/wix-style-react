@@ -463,12 +463,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  DataTable: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-  },
-
   DropdownLayout: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
