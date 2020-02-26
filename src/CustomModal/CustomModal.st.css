@@ -27,7 +27,8 @@
   background-color: value(D80);
   position: relative;
   min-width: 510px;
-  max-width: calc(100% - (value(modalBoxPadding) * 2) );
+  width: calc(100% - (value(modalBoxPadding) * 2) );
+  max-width: 1254px;
   max-height: calc(100% - (value(modalBoxPadding) * 2) );
   display: flex;
   flex-direction: column;
