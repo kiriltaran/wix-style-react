@@ -17,8 +17,6 @@ function ColorInputWithAllProps() {
       addTooltipContent={<div />}
       colorPickerChildren={<div />}
       disabled
-      error
-      errorMessage="msg"
       onAddColor={_color => {}}
       onCancel={_color => {}}
       onChange={_color => {}}
@@ -26,8 +24,10 @@ function ColorInputWithAllProps() {
       placeholder="placeholder"
       popoverAppendTo="parent"
       popoverPlacement="auto"
-      popoverProps={{}}      
+      popoverProps={{}}
       size="large"
+      status="error"
+      statusMessage="message"
     />
   );
 }
@@ -35,18 +35,18 @@ function ColorInputWithAllProps() {
 async function testkits() {
   const testkit = colorInputTestkitFactory({
     dataHook: 'hook',
-    wrapper: document.createElement('div')
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = colorInputEnzymeTestkitFactory({
     dataHook: 'hook',
-    wrapper: enzyme.mount(<div />)
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await colorInputPuppeteerTestkitFactory({
     dataHook: 'hook',
-    page
+    page,
   });
 }

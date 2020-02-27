@@ -1,5 +1,13 @@
 import React from 'react';
-import { node, bool, string, func, oneOf, oneOfType, object } from 'prop-types';
+import PropTypes, {
+  node,
+  bool,
+  string,
+  func,
+  oneOf,
+  oneOfType,
+  object,
+} from 'prop-types';
 
 import Input from '../Input';
 import { Hash } from './components/Hash';
@@ -15,10 +23,10 @@ class ColorInput extends React.Component {
     placeholder: string,
     /** when set to true this component is disabled */
     disabled: bool,
-    /** sets error state */
-    error: bool,
-    /** error message which appears in tooltip */
-    errorMessage: node,
+    /** Sets UI to indicate a status */
+    status: PropTypes.oneOf(['error', 'warning', 'loading']),
+    /** The status message to display when hovering the status icon, if not given or empty there will be no tooltip */
+    statusMessage: PropTypes.node,
     /** input size */
     size: oneOf(['small', 'medium', 'large']),
     /** colorpicker popover placement */
@@ -61,7 +69,6 @@ class ColorInput extends React.Component {
 
   static defaultProps = {
     placeholder: '',
-    error: false,
     size: 'medium',
     popoverPlacement: 'bottom',
     popoverAppendTo: 'parent',
@@ -179,14 +186,12 @@ class ColorInput extends React.Component {
   };
 
   render() {
-    const { placeholder, errorMessage, size, ...rest } = this.props;
+    const { placeholder, size, ...rest } = this.props;
     const { active, value } = this.state;
     return (
       <Input
         {...rest}
         ref={input => (this.input = input)}
-        status={this.props.error ? 'error' : undefined}
-        statusMessage={errorMessage}
         placeholder={active ? '' : placeholder}
         size={size}
         onKeyDown={this._keyDown}
