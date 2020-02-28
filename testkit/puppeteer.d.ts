@@ -71,8 +71,6 @@ import {ContactItemBuilderUniDriver} from '../src/ContactItemBuilder/ContactItem
 export const contactItemBuilderTestkitFactory: PuppeteerUniTestkitFactory<ContactItemBuilderUniDriver>;
 import {CounterBadgeUniDriver} from '../src/CounterBadge/CounterBadge.uni.driver';
 export const counterBadgeTestkitFactory: PuppeteerUniTestkitFactory<CounterBadgeUniDriver>;
-import {DataTableUniDriver} from '../src/DataTable/DataTable.uni.driver';
-export const dataTableTestkitFactory: PuppeteerUniTestkitFactory<DataTableUniDriver>;
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
 export const dateInputTestkitFactory: PuppeteerUniTestkitFactory<DateInputUniDriver>;
 import {DropdownUniDriver} from '../src/Dropdown/Dropdown.uni.driver';
@@ -245,6 +243,8 @@ import {CustomModalUniDriver} from '../src/CustomModal/CustomModal.uni.driver';
 export const customModalTestkitFactory: PuppeteerUniTestkitFactory<CustomModalUniDriver>;
 import {StatusIndicatorUniDriver} from '../src/StatusIndicator/StatusIndicator.uni.driver';
 export const statusIndicatorTestkitFactory: PuppeteerUniTestkitFactory<StatusIndicatorUniDriver>;
+import {PopoverMenuUniDriver} from '../src/PopoverMenu/PopoverMenu.uni.driver';
+export const popoverMenuTestkitFactory: PuppeteerUniTestkitFactory<PopoverMenuUniDriver>;
 import {HeaderUniDriver} from '../src/Card/Header/Header.uni.driver';
 export const cardHeaderTestkitFactory: PuppeteerUniTestkitFactory<HeaderUniDriver>;
 import {EditableRowUniDriver} from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';
@@ -257,12 +257,5 @@ import {CardSubheaderUniDriver} from '../src/Card/Subheader/Subheader.uni.driver
 export const subheaderTestkitFactory: PuppeteerUniTestkitFactory<CardSubheaderUniDriver>;
 
 
-export const autoCompleteCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
-export const googleAddressInputWithLabelTestkitFactory: DeprecatedPuppeteerTestkit;
-export const multiSelectCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
-export const statsWidgetTestkitFactory: DeprecatedPuppeteerTestkit;
-export const drillViewTestkitFactory: DeprecatedPuppeteerTestkit;
-export const sideMenuTestkitFactory: DeprecatedPuppeteerTestkit;
 export const draggableTestkitFactory: DeprecatedPuppeteerTestkit;
 export const fieldLabelAttributesTestkitFactory: DeprecatedPuppeteerTestkit;
-export const fieldWithSelectionCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
