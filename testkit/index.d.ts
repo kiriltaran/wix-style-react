@@ -24,7 +24,7 @@ interface VanillaTestkitParams {
 
 import { TooltipDriver } from '../src/Tooltip/Tooltip.driver';
 export const tooltipTestkitFactory: VanillaTestkitFactory<TooltipDriver>;
-import { TooltipUniDriver } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import { TooltipUniDriver } from '../src/Tooltip/Tooltip.uni.driver';
 export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
 
 type DeprecatedVanillaTestkit = any;

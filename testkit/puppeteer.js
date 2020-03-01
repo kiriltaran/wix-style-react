@@ -13,7 +13,7 @@ import {
 } from 'wix-ui-test-utils/puppeteer';
 
 import tooltipDriverFactory from '../src/Tooltip/Tooltip.puppeteer.driver';
-import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/Tooltip.uni.driver';
 
 export const tooltipTestkitFactory = puppeteerTestkitFactoryCreator(
   tooltipDriverFactory,

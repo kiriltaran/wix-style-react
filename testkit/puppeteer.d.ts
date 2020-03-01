@@ -26,7 +26,7 @@ type DeprecatedPuppeteerTestkit = any;
 
 import {TooltipPuppeteerDriver} from '../src/Tooltip/Tooltip.puppeteer.driver';
 export const tooltipTestkitFactory: PuppeteerTestkitFactory<TooltipPuppeteerDriver>;
-import {TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TooltipUniDriver} from '../src/Tooltip/Tooltip.uni.driver';
 export const TooltipTestkit: PuppeteerUniTestkitFactory<TooltipUniDriver>;
 
 import {AccordionUniDriver} from '../src/Accordion/Accordion.uni.driver';

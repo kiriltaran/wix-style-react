@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tooltip from '../../Tooltip/TooltipNext';
+import Tooltip from '../../Tooltip';
 
 import style from './TooltipHOC.st.css';
 import { dataHooks } from '../constants';

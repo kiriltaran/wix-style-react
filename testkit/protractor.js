@@ -19,7 +19,7 @@ export {
 } from 'wix-ui-test-utils/protractor';
 
 import tooltipDriverFactory from '../src/Tooltip/Tooltip.protractor.driver';
-import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/Tooltip.uni.driver';
 
 export const tooltipTestkitFactory = protractorTestkitFactoryCreator(
   tooltipDriverFactory,
