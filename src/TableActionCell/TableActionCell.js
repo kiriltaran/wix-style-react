@@ -36,7 +36,6 @@ function renderVisibleActions(actions) {
       index,
     ) => (
       <Tooltip
-        upgrade
         key={index}
         dataHook={dataHook || 'table-action-cell-visible-action-tooltip'}
         content={

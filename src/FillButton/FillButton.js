@@ -81,7 +81,6 @@ class FillButton extends React.PureComponent {
         appendTo="window"
         disabled={disabled}
         {...tooltipProps}
-        upgrade
         dataHook={dataHook}
         content={tooltipContent}
         size="small"

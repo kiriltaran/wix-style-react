@@ -2,11 +2,7 @@ import * as React from 'react';
 import { Placement } from 'wix-ui-core/dist/src/components/popover/Popover.d';
 import { MoveByOffset } from '../common';
 
-export type TooltipAppendTo =
-  | 'window'
-  | 'scrollParent'
-  | 'viewport'
-  | 'parent';
+export type TooltipAppendTo = 'window' | 'scrollParent' | 'viewport' | 'parent';
 export type TooltipTextAlign = 'center' | 'start';
 export type TooltipSize = 'small' | 'medium';
 

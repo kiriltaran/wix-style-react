@@ -30,7 +30,6 @@ class TooltipHOC extends Component {
         timeout={0}
         {...tooltipProps}
         {...style('tooltip', {}, this.props)}
-        upgrade
         dataHook={dataHooks.itemTooltip}
       >
         {children}
