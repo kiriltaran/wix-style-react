@@ -65,13 +65,19 @@ export const sizes = `
 export const states = `
 <Layout>
   <Cell>
-    <ColorInput value="#FF0000" error errorMessage="message" />
-  </Cell>
-  <Cell>
     <ColorInput value="" />
   </Cell>
   <Cell>
     <ColorInput value="#FF0000" disabled />
+  </Cell>
+  <Cell>
+    <ColorInput value="#FF0000" status="error" statusMessage="message" />
+  </Cell>
+  <Cell>
+    <ColorInput value="#FF0000" status="warning" statusMessage="message" />
+  </Cell>
+  <Cell>
+    <ColorInput value="#FF0000" status="loading" statusMessage="message" />
   </Cell>
 </Layout>
 `;
