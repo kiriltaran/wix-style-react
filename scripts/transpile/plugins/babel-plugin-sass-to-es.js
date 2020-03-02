@@ -13,10 +13,6 @@ module.exports = function() {
         if (/[A-Za-z]*\.scss/.test(originalPath)) {
           const { file } = state;
 
-          if (/.+?(?=es\/dist\/src)es\/dist\/src/.test(originalPath)) {
-            return;
-          }
-
           // we check which files tries to import the sass file
           const ComponentFile = file.opts.generatorOpts.sourceFileName;
 
@@ -26,12 +22,9 @@ module.exports = function() {
             originalPath,
           );
 
-          console.log(absolutePath); // eslint-disable-line
-
           // we remove the project root
-          const projectRoot = absolutePath.match(
-            /.+?(?=wix-style-react)wix-style-react\/src\//,
-          )[0];
+          const projectRoot = absolutePath.match(/.+?(?=\/src)\/src\//)[0];
+
           const srcPath = absolutePath.replace(projectRoot, '');
 
           // finally construct sass import
