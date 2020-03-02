@@ -1,4 +1,4 @@
-const resolve = require('path').resolve;
+const path = require('path');
 
 // This plugin transpiles sass imports to imports from dist/es
 // this solves the problem for ssr where we have classname mismatch.
@@ -7,8 +7,8 @@ module.exports = function() {
   return {
     name: 'sass-to-es',
     visitor: {
-      ImportDeclaration(path, state) {
-        const originalPath = path.node.source.value;
+      ImportDeclaration(api, state) {
+        const originalPath = api.node.source.value;
 
         if (/[A-Za-z]*\.scss/.test(originalPath)) {
           const { file } = state;
@@ -17,18 +17,18 @@ module.exports = function() {
           const ComponentFile = file.opts.generatorOpts.sourceFileName;
 
           // then we can get absolute path of sass file
-          const absolutePath = resolve(
+          const absolutePath = path.resolve(
             file.opts.filename.replace(ComponentFile, ''),
             originalPath,
           );
 
-          // we remove the project root
-          const projectRoot = absolutePath.match(/.+?(?=\/src)\/src\//)[0];
+          const es = absolutePath.replace('src/', 'dist/es/src/');
+          const cjs = absolutePath.replace('src/', 'dist/src/');
 
-          const srcPath = absolutePath.replace(projectRoot, '');
+          const relative = path.relative(cjs, es);
 
           // finally construct sass import
-          path.node.source.value = `../../es/src/${srcPath}`;
+          api.node.source.value = relative;
         }
       },
     },
