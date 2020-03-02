@@ -8,11 +8,17 @@ const mkdirp = require('mkdirp');
 const { parse } = require('@babel/parser');
 const { transformFromAstAsync } = require('@babel/core');
 
-const srcDir = path.resolve(__dirname, '../dist');
-const esDir = path.resolve(__dirname, '../dist/es');
+const srcDir = path.resolve(__dirname, '../../dist');
+const esDir = path.resolve(__dirname, '../../dist/es');
+
 const srcToEsBabelPlugin = path.resolve(
   __dirname,
-  './babel-plugin-src-to-es.js',
+  './plugins/babel-plugin-src-to-es.js',
+);
+
+const sassToES = path.resolve(
+  __dirname,
+  './plugins/babel-plugin-sass-to-es.js',
 );
 
 const readFileAsync = fileLoc => {
@@ -94,6 +100,7 @@ const run = () => {
     files
       .map(async fileLoc => {
         const fileContent = await readFileAsync(fileLoc, 'utf8');
+
         const ast = parse(fileContent, {
           sourceType: 'module',
           tokens: false,
@@ -108,17 +115,22 @@ const run = () => {
             'objectRestSpread',
           ],
         });
+
+        // transform wix-ui-core/dist/es/src to wix-ui-core/dist/src for es modules
         const transformedWithModules = await transformFromAstAsync(ast, null, {
           babelrc: true,
           ast: true,
           filename: fileLoc,
-          plugins: [srcToEsBabelPlugin],
+          plugins: [[srcToEsBabelPlugin, { esToSrc: false }]],
         });
+
         const writeModules = writeFileAsync(
           fileLoc,
           esDir,
           transformedWithModules.code,
         );
+
+        // transform wix-ui-core/dist/es/src to wix-ui-core/dist/src for commonjs
         const transformedES5 = await transformFromAstAsync(
           transformedWithModules.ast,
           null,
@@ -128,11 +140,13 @@ const run = () => {
             filename: fileLoc,
             plugins: [
               [srcToEsBabelPlugin, { esToSrc: true }],
+              sassToES,
               '@babel/plugin-transform-modules-commonjs',
               'babel-plugin-dynamic-import-node',
             ],
           },
         );
+
         return Promise.all([
           writeModules,
           writeFileAsync(fileLoc, srcDir, transformedES5.code),

@@ -10,12 +10,14 @@ module.exports = function() {
           esToSrc = false,
           libsName = ['wix-ui-core', 'wix-ui-backoffice'],
         } = state.opts;
+
         const originalPath = path.node.source.value;
+
         libsName.forEach(libName => {
           if (originalPath.includes(libName)) {
-            const [fromDistPath, toDistPath] = !esToSrc
-              ? [`${libName}/dist/src`, `${libName}/dist/es/src`]
-              : [`${libName}/dist/es/src`, `${libName}/dist/src`];
+            const [fromDistPath, toDistPath] = esToSrc
+              ? [`${libName}/dist/es/src`, `${libName}/dist/src`]
+              : [`${libName}/dist/src`, `${libName}/dist/es/src`];
 
             path.node.source.value = originalPath.replace(
               fromDistPath,

@@ -2,7 +2,7 @@ const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
 
-const targetDir = path.resolve(__dirname, '..', 'dist/es/src');
+const targetDir = path.resolve(__dirname, '../../', 'dist/es/src');
 
 const STYLABLE_PATTERN = '/**/*.st.css';
 const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
