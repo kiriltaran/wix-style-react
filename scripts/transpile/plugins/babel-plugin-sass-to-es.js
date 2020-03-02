@@ -10,12 +10,12 @@ module.exports = function() {
       ImportDeclaration(path, state) {
         const originalPath = path.node.source.value;
 
-        if (/.+?(?=es\/dist\/src)es\/dist\/src/.test(originalPath)) {
-          return;
-        }
-
         if (/[A-Za-z]*\.scss/.test(originalPath)) {
           const { file } = state;
+
+          if (/.+?(?=es\/dist\/src)es\/dist\/src/.test(originalPath)) {
+            return;
+          }
 
           // we check which files tries to import the sass file
           const ComponentFile = file.opts.generatorOpts.sourceFileName;

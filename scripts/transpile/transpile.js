@@ -63,7 +63,7 @@ Promise.all([testkit, test, src])
     console.log(`🚀 Done in ${Math.round(new Date() - startTime) / 1000}s`);
   })
   .catch(error => {
-    console.log(error);
+    console.error(error);
     progress.interrupt('Error');
     return Promise.reject(error);
   });
