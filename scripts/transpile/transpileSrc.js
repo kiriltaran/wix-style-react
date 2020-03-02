@@ -52,12 +52,6 @@ const copyAsync = ({ src, dist, withESTransform }) => {
       files.forEach(file => {
         if (withESTransform && file.dest.includes('st.css')) {
           fs.readFile(file.dest, 'utf-8', function(error, content) {
-            content = content
-              .replace(
-                /wix-ui-backoffice\/dist\/src/g,
-                'wix-ui-backoffice/dist/es/src',
-              )
-              .replace(/wix-ui-core\/dist\/src/g, 'wix-ui-core/dist/es/src');
             fs.writeFile(file.dest, content, function(writeErr) {
               if (writeErr) {
                 console.warn(writeErr);
@@ -80,6 +74,7 @@ const run = () => {
     dist: './dist/es/src',
     withESTransform: true,
   });
+
   const srcCopied = copyAsync({
     src: './src/**/!(*.js)',
     dist: './dist/src',
