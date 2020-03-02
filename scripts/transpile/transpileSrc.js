@@ -140,7 +140,6 @@ const run = () => {
             filename: fileLoc,
             plugins: [
               [srcToEsBabelPlugin, { esToSrc: true }],
-              sassToES,
               '@babel/plugin-transform-modules-commonjs',
               'babel-plugin-dynamic-import-node',
             ],
