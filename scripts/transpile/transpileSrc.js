@@ -46,20 +46,9 @@ const writeFileAsync = (fileLoc, dir, code) => {
   });
 };
 
-const copyAsync = ({ src, dist, withESTransform }) => {
+const copyAsync = ({ src, dist }) => {
   return new Promise((resolve, reject) => {
     copy(src, dist, function(err, files) {
-      files.forEach(file => {
-        if (withESTransform && file.dest.includes('st.css')) {
-          fs.readFile(file.dest, 'utf-8', function(error, content) {
-            fs.writeFile(file.dest, content, function(writeErr) {
-              if (writeErr) {
-                console.warn(writeErr);
-              }
-            });
-          });
-        }
-      });
       if (err) {
         return reject(err);
       }

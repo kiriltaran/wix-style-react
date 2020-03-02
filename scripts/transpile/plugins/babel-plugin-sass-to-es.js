@@ -1,6 +1,6 @@
 const resolve = require('path').resolve;
 
-// This plugin transpiles sass imports for commonjs to imports from dist/es
+// This plugin transpiles sass imports to imports from dist/es
 // this solves the problem for ssr where we have classname mismatch.
 
 module.exports = function() {
@@ -9,6 +9,10 @@ module.exports = function() {
     visitor: {
       ImportDeclaration(path, state) {
         const originalPath = path.node.source.value;
+
+        if (/.+?(?=es\/dist\/src)es\/dist\/src/.test(originalPath)) {
+          return;
+        }
 
         if (/[A-Za-z]*\.scss/.test(originalPath)) {
           const { file } = state;
