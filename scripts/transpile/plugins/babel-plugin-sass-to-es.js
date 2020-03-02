@@ -28,7 +28,7 @@ module.exports = function() {
           const srcPath = absolutePath.replace(projectRoot, '');
 
           // finally construct sass import
-          path.node.source.value = `../../es/dist/src/${srcPath}`;
+          path.node.source.value = `../../es/src/${srcPath}`;
         }
       },
     },
