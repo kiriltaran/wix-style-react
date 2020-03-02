@@ -26,6 +26,8 @@ module.exports = function() {
             originalPath,
           );
 
+          console.log(absolutePath); // eslint-disable-line
+
           // we remove the project root
           const projectRoot = absolutePath.match(
             /.+?(?=wix-style-react)wix-style-react\/src\//,
