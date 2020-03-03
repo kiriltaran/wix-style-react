@@ -61,7 +61,6 @@ const run = ({ progress, opts }) => {
   const esCopied = copyAsync({
     src: './src/**/!(*.js)',
     dist: './dist/es/src',
-    withESTransform: true,
   });
 
   const srcCopied = copyAsync({

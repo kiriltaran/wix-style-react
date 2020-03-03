@@ -1,7 +1,9 @@
+/* eslint no-console: 0 */
 const ProgressBar = require('progress');
 
 const STEPS = 5;
 const TOTAL_STEPS_WIDTH = 20;
+const START_TIME = new Date();
 const STEP_WIDTH = TOTAL_STEPS_WIDTH / STEPS;
 
 const progress = new ProgressBar(
@@ -58,6 +60,10 @@ const tasks = [
         path: './tasks/replaceStylableImports',
         progress: 'stylable /dist/src => /dist/es/src',
       }),
+  },
+  {
+    task: () =>
+      console.log(`🚀 Done in ${Math.round(new Date() - START_TIME) / 1000}s`),
   },
 ];
 

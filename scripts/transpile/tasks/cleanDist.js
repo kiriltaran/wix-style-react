@@ -8,6 +8,7 @@ module.exports = function({ progress, opts }) {
       mkdirp.sync('./dist');
       resolve(progress.tick(opts.step, { dir: opts.desc }));
     } catch (e) {
+      progress.interrupt('Error');
       reject(e);
     }
   });

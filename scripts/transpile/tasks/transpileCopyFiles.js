@@ -20,6 +20,7 @@ module.exports = function({ name, progress, opts }) {
 
       return resolve(promise);
     } catch (e) {
+      progress.interrupt('Error');
       reject(e);
     }
   });
