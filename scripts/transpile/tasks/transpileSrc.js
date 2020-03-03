@@ -8,17 +8,17 @@ const mkdirp = require('mkdirp');
 const { parse } = require('@babel/parser');
 const { transformFromAstAsync } = require('@babel/core');
 
-const srcDir = path.resolve(__dirname, '../../dist');
-const esDir = path.resolve(__dirname, '../../dist/es');
+const srcDir = path.resolve(__dirname, '../../../dist');
+const esDir = path.resolve(__dirname, '../../../dist/es');
 
 const srcToEsBabelPlugin = path.resolve(
   __dirname,
-  './plugins/babel-plugin-src-to-es.js',
+  '../plugins/babel-plugin-src-to-es.js',
 );
 
 const sassToES = path.resolve(
   __dirname,
-  './plugins/babel-plugin-sass-to-es.js',
+  '../plugins/babel-plugin-sass-to-es.js',
 );
 
 const readFileAsync = fileLoc => {
@@ -57,7 +57,7 @@ const copyAsync = ({ src, dist }) => {
   });
 };
 
-const run = () => {
+const run = ({ progress, opts }) => {
   const esCopied = copyAsync({
     src: './src/**/!(*.js)',
     dist: './dist/es/src',
@@ -137,7 +137,11 @@ const run = () => {
         ]);
       })
       .concat(esCopied, srcCopied),
-  );
+  ).then(() => {
+    progress.tick(opts.step, {
+      dir: opts.desc,
+    });
+  });
   return result;
 };
 

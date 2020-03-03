@@ -2,7 +2,7 @@ const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
 
-const targetDir = path.resolve(__dirname, '../../', 'dist/es/src');
+const targetDir = path.resolve(__dirname, '../../../', 'dist/es/src');
 
 const STYLABLE_PATTERN = '/**/*.st.css';
 const STYLABLE_ES_PATTERN = '/**/*.es.st.css';
@@ -29,7 +29,7 @@ const WRONG_PATHS = [
   },
 ];
 
-module.exports = () => {
+module.exports = function({ progress, opts }) {
   const stylableFiles = glob.sync(targetDir + STYLABLE_PATTERN, {
     ignore: [targetDir + STYLABLE_ES_PATTERN],
   });
@@ -89,5 +89,5 @@ module.exports = () => {
         });
       });
     }),
-  );
+  ).then(() => progress.tick(opts.step, { dir: opts.desc }));
 };
