@@ -17,17 +17,23 @@ module.exports = function() {
           const ComponentFile = file.opts.generatorOpts.sourceFileName;
 
           // then we can get absolute path of sass file
-          const absolutePath = path.resolve(
+          const absolutePathSass = path.resolve(
             file.opts.filename.replace(ComponentFile, ''),
             originalPath,
           );
 
-          const es = absolutePath.replace('src/', 'dist/es/src/');
-          const cjs = absolutePath.replace('src/', 'dist/src/');
+          // we construct sass import to be from es folder
+          const sassES = absolutePathSass.replace('src/', 'dist/es/src/');
 
-          const relative = path.relative(cjs, es);
+          // we construct the component that tries to import sass file to be in
+          // common js path
+          const fileCJS = file.opts.filename
+            .replace(ComponentFile, '')
+            .replace('src/', 'dist/src/');
 
-          // finally construct sass import
+          // we get a relative path for component to import from es
+          const relative = path.relative(fileCJS, sassES);
+
           api.node.source.value = relative;
         }
       },
