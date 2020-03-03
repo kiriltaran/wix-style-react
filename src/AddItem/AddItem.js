@@ -48,9 +48,6 @@ class AddItem extends Component {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
 
-    /** @deprecated do not use this prop. Check for other available props. */
-    tooltipProps: PropTypes.shape(Tooltip.propTypes),
-
     /** tooltips content relation to a dom element */
     tooltipAppendTo: PropTypes.oneOf([
       'window',

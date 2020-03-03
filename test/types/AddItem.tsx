@@ -26,7 +26,6 @@ function AddItemWithAllProps() {
       tooltipFixed
       tooltipFlip
       tooltipPlacement="top"
-      tooltipProps={{}}
     />
   );
 }

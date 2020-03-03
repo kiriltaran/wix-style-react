@@ -11,7 +11,6 @@ class TooltipHOC extends Component {
   };
   render() {
     const {
-      tooltipProps,
       tooltipContent,
       children,
       enabled,
@@ -28,7 +27,6 @@ class TooltipHOC extends Component {
         content={tooltipContent}
         appendTo={tooltipAppendTo}
         timeout={0}
-        {...tooltipProps}
         {...style('tooltip', {}, this.props)}
         upgrade
         dataHook={dataHooks.itemTooltip}
