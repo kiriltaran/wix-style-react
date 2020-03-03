@@ -2,17 +2,16 @@ import {
   tab,
   api,
   title,
-  code as baseCode,
   importExample,
+  example as baseExample,
   playground,
-  testkit,
   description,
-  columns,
+  testkit,
 } from 'wix-storybook-utils/Sections';
 
 import RichTextInputArea from '..';
 import { storySettings } from './storySettings';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import testkitReadme from './README.TESTKIT.md';
 
 import SetValueExample from '!raw-loader!./examples/SetValue';
@@ -22,15 +21,7 @@ import ErrorExample from '!raw-loader!./examples/Error';
 import DisabledExample from '!raw-loader!./examples/Disabled';
 import PlaceholderExample from '!raw-loader!./examples/Placeholder';
 
-const liveCode = config =>
-  baseCode({
-    components: baseScope,
-    compact: true,
-    ...config,
-  });
-
-const example = ({ source, autoRender = true, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source, autoRender })]);
+const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -54,53 +45,41 @@ export default {
     tab({
       title: 'Usage',
       sections: [
-        importExample({
-          source:
-            "import RichTextInputArea from 'wix-style-react/RichTextInputArea';",
-        }),
+        importExample(
+          "import RichTextInputArea from 'wix-style-react/RichTextInputArea';",
+        ),
 
         title('Examples'),
 
-        ...[
-          {
-            title: 'Basic',
-            description: 'Using rich text elements',
-            source: RichTextElements,
-          },
-          {
-            title: 'Initial value',
-            description: 'Can be initialized with a given value',
-            source: InitialValueExamle,
-          },
-          {
-            title: 'Set value / Rest value',
-            description:
-              'Value can be externally set at any time, mostly will be used for reset purposes',
-            source: SetValueExample,
-            autoRender: false,
-          },
-          { title: 'Error', source: ErrorExample },
-          { title: 'Disabled', source: DisabledExample },
-          { title: 'Placeholder', source: PlaceholderExample },
-        ].map(example),
+        example({
+          title: 'Basic',
+          description: 'Using rich text elements',
+          source: RichTextElements,
+        }),
+
+        example({
+          title: 'Initial value',
+          description: 'Can be initialized with a given value',
+          source: InitialValueExamle,
+        }),
+
+        example({
+          title: 'Set value / Rest value',
+          description:
+            'Value can be externally set at any time, mostly will be used for reset purposes',
+          source: SetValueExample,
+          autoRender: false,
+        }),
+        example({ title: 'Error', source: ErrorExample }),
+        example({ title: 'Disabled', source: DisabledExample }),
+        example({ title: 'Placeholder', source: PlaceholderExample }),
       ],
     }),
 
     ...[
-      {
-        title: 'API',
-        sections: [api()],
-      },
-
-      {
-        title: 'TestKit',
-        sections: [testkit(), description(testkitReadme)],
-      },
-
-      {
-        title: 'Playground',
-        sections: [playground()],
-      },
+      { title: 'API', sections: [api()] },
+      { title: 'TestKit', sections: [testkit(), description(testkitReadme)] },
+      { title: 'Playground', sections: [playground()] },
     ].map(tab),
   ],
 };
