@@ -22,8 +22,8 @@ interface VanillaTestkitParams {
   dataHook: string;
 }
 
-import { TooltipDriver } from '../src/Tooltip/Tooltip.driver';
-export const tooltipTestkitFactory: VanillaTestkitFactory<TooltipDriver>;
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
+export const tooltipTestkitFactory: VanillaTestkitFactory<ReturnType<typeof tooltipDriverFactory>>;
 import { TooltipUniDriver } from '../src/Tooltip/Tooltip.uni.driver';
 export const TooltipTestkit: VanillaUniTestkitFactory<TooltipUniDriver>;
 
