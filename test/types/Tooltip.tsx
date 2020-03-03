@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Tooltip, { TooltipProps } from '../../src/Tooltip';
+import Tooltip, { TooltipProps } from '../../Tooltip';
 import { tooltipTestkitFactory, TooltipTestkit } from '../../testkit';
 import {
   tooltipTestkitFactory as tooltipEnzymeTestkitFactory,

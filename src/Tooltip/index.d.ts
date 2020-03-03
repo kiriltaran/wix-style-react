@@ -6,7 +6,7 @@ export type TooltipAppendTo = 'window' | 'scrollParent' | 'viewport' | 'parent';
 export type TooltipTextAlign = 'center' | 'start';
 export type TooltipSize = 'small' | 'medium';
 
-export interface TooltipProps {
+export type TooltipProps = {
   upgrade: true;
   dataHook?: string;
   content?: React.ReactNode;
@@ -24,16 +24,6 @@ export interface TooltipProps {
   placement?: Placement;
   size?: TooltipSize;
   zIndex?: React.CSSProperties['zIndex'];
-}
-
-export default class Tooltip<
-  T extends TooltipProps
-> extends React.PureComponent<T> {
-  /** @deprecated use `upgrade` prop with `close` method */
-  hide: T extends { upgrade: true } ? never : (props?: TooltipProps) => void;
-  /** @deprecated use `upgrade` prop with `open` method */
-  show: T extends { upgrade: true } ? never : (props?: TooltipProps) => void;
-
-  close: T extends { upgrade: true } ? () => void : never;
-  open: T extends { upgrade: true } ? () => void : never;
+  close?: () => void;
+  open?: () => void;
 }

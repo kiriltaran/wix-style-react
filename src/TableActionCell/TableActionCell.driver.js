@@ -1,7 +1,7 @@
 import ReactTestUtils from 'react-dom/test-utils';
 import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
 import { popoverMenuTestkitFactory } from '../../testkit';
-import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
 
 const buttonDriverFactory = ({ element }) => {
