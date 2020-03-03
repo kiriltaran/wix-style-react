@@ -34,6 +34,10 @@ module.exports = function() {
           // we get a relative path for component to import from es
           const relative = path.relative(fileCJS, sassES);
 
+          console.log('sassEs', sassES); // eslint-disable-line
+          console.log('fileCJS', fileCJS); // eslint-disable-line
+          console.log('relative', relative); // eslint-disable-line
+
           api.node.source.value = relative;
         }
       },
