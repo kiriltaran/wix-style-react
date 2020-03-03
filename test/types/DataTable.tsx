@@ -1,10 +1,10 @@
-import * as React from "react";
-import DataTable from "../../src/DataTable";
-import { dataTableTestkitFactory } from "../../dist/testkit";
-import { dataTableTestkitFactory as dataTableEnzymeTestkitFactory } from "../../dist/testkit/enzyme";
-import { dataTableTestkitFactory as dataTablePuppeteerTestkitFactory } from "../../dist/testkit/puppeteer";
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as React from 'react';
+import DataTable from '../../src/DataTable';
+import { dataTableTestkitFactory } from '../../dist/testkit';
+import { dataTableTestkitFactory as dataTableEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
+import { dataTableTestkitFactory as dataTablePuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function DataTableWithMandatoryProps() {
   return <DataTable columns={[]} />;
@@ -16,20 +16,20 @@ function DataTableWithAllProps() {
       allowMultiDetailsExpansion
       columns={[
         {
-          align: "center",
+          align: 'center',
           infoTooltipProps: {},
-          render: (_row, _num) => "text",
+          render: (_row, _num) => 'text',
           sortDescending: true,
           sortable: true,
-          title: "title",
+          title: 'title',
           important: true,
-          style: { width: "10px" },
-          width: "10px"
-        }
+          style: { width: '10px' },
+          width: '10px',
+        },
       ]}
       data={[{}]}
       dataHook="hook"
-      dynamicRowClass={(_rowData, _rowNum) => ""}
+      dynamicRowClass={(_rowData, _rowNum) => ''}
       hasMore
       hideHeader
       id="id"
@@ -46,8 +46,8 @@ function DataTableWithAllProps() {
       rowDataHook="string"
       rowDetails={(_rowData, _rowNum) => <span />}
       rowVerticalPadding="large"
-      scrollElement={document.createElement("div")}
-      selectedRowsIds={[1, "2"]}
+      scrollElement={document.createElement('div')}
+      selectedRowsIds={[1, '2']}
       showHeaderWhenEmpty
       showLastRowDivider
       skin="neutral"
@@ -69,21 +69,25 @@ function DataTableWithAllProps() {
   );
 }
 
+function DataTableWithRefScrollElement() {
+  return <DataTable scrollElement={React.createRef()} columns={[]} />;
+}
+
 async function testkits() {
   const testkit = dataTableTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = dataTableEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await dataTablePuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

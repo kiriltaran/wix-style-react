@@ -1,10 +1,10 @@
-import * as React from "react";
-import Table from "../../src/Table";
-import { tableTestkitFactory } from "../../dist/testkit";
-import { tableTestkitFactory as tableEnzymeTestkitFactory } from "../../dist/testkit/enzyme";
-import { tableTestkitFactory as tablePuppeteerTestkitFactory } from "../../dist/testkit/puppeteer";
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as React from 'react';
+import Table from '../../src/Table';
+import { tableTestkitFactory } from '../../dist/testkit';
+import { tableTestkitFactory as tableEnzymeTestkitFactory } from '../../dist/testkit/enzyme';
+import { tableTestkitFactory as tablePuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function tableWithMandatoryProps() {
   return <Table columns={[]} />;
@@ -17,7 +17,7 @@ function tableWithAllProps() {
       data={[]}
       dataHook="hook"
       deselectRowsByDefault
-      dynamicRowClass={(_rowData, _rowNum) => ""}
+      dynamicRowClass={(_rowData, _rowNum) => ''}
       hasMore
       hideBulkSelectionCheckbox
       hideHeader
@@ -36,7 +36,7 @@ function tableWithAllProps() {
       rowDataHook="hook"
       rowDetails={(_rowData, rowNum) => <span />}
       rowVerticalPadding="large"
-      scrollElement={document.createElement("div")}
+      scrollElement={document.createElement('div')}
       selectedIds={[1, 2, 3]}
       selectionDisabled
       showHeaderWhenEmpty
@@ -53,42 +53,45 @@ function tableWithAllProps() {
       withWrapper
       columns={[
         {
-          align: "center",
+          align: 'center',
           important: true,
           infoTooltipProps: {},
           render: (_row, _rowNum) => <span />,
           sortDescending: true,
           sortable: true,
-          style: { font: "14px" },
+          style: { font: '14px' },
           title: <span />,
-          width: "10"
-        }
+          width: '10',
+        },
       ]}
     />
   );
 }
 
-function testInstanceMethods() {
-  const instance = new Table({columns: []});
-  instance.setSelectedIds([1,2,3]);
+function tableWithRefScrollElement() {
+  return <Table scrollElement={React.createRef()} columns={[]} />;
+}
 
+function testInstanceMethods() {
+  const instance = new Table({ columns: [] });
+  instance.setSelectedIds([1, 2, 3]);
 }
 
 async function testkits() {
   const testkit = tableTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = tableEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await tablePuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }

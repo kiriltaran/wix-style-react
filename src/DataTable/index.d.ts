@@ -25,7 +25,7 @@ export interface DataTableProps {
   hasMore?: boolean;
   loader?: React.ReactNode;
   useWindow?: boolean;
-  scrollElement?: HTMLElement;
+  scrollElement?: HTMLElement | React.RefObject<any>;
   rowVerticalPadding?: DataTableRowVerticalPadding;
   /**
    * @deprecated
